@@ -1,16 +1,10 @@
 node {
     def app
-    def counter = 0
-    def data = "Version" + counter
-    writeFile(file: 'version.txt', text: counter.toString())
-    
     stage('Clone repository') {
-        
         checkout scm
     }
 
     stage('Build image and Unit Test') {
-  
        app = docker.build("rla8127/test")
        app.inside {
             sh 'echo "Tests passed"'
