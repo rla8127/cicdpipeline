@@ -30,10 +30,6 @@ node {
                         //sh "git switch master"
                         sh "cat deployment.yaml"
                         sh "sed -i 's+rla8127/test.*+rla8127/test:${tag}+g' deployment.yaml"
-                        sh "cat deployment.yaml"
-                        sh "git add ."
-                        sh "git commit -m 'Done by Jenkins Job changemanifest: ${tag}'"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
       }
     }
    }
