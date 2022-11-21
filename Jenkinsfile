@@ -2,23 +2,18 @@ node {
     def app
     
     stage('Clone repository') {
-      
-
+        
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Build image and Unit Test') {
   
        app = docker.build("rla8127/test")
-    }
-
-    stage('Test image') {
-  
-
-        app.inside {
+       app.inside {
             sh 'echo "Tests passed"'
         }
     }
+
 
     stage('Push image') {
         
@@ -27,7 +22,7 @@ node {
         }
     }
     
-    stage('Update GIT') {
+    stage('Update Deployment') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
