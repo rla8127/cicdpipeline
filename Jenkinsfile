@@ -1,5 +1,5 @@
 node {
-    tag = VersionNumber projectStartDate: '2022-11-21', versionNumberString: '${BUILDS_ALL_TIME, "0.0.N"}', versionPrefix: 'RB', worstResultForIncrement: 'SUCCESS'
+    tag = VersionNumber projectStartDate: '', versionNumberString: '${BUILDS_ALL_TIME,XXX}', versionPrefix: 'RB', worstResultForIncrement: 'SUCCESS'
  
     def app
     stage('Clone repository') {
