@@ -43,5 +43,6 @@ node {
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
       }
     }
-  }
+   }
+ }
 }
