@@ -6,6 +6,7 @@ node {
         checkout scm
     }
 
+    
     stage('Build image and Unit Test') {
        app = docker.build("rla8127/test")
        app.inside {
